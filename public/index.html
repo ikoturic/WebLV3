@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Movie data and pictures">
+    <meta name="keywords" content="Movie, Geek">
+    <meta name="author" content="Ivan Koturić">
+    <link rel="stylesheet" href="style.css">
+    <title>MovieGeek</title>
+</head>
+<body>
+    <header>
+        <h1>MovieGeek</h1>
+        <nav aria-labelledby="primarna-navigacija">
+            <h2 id="primarna-navigacija" class="sr-only">Primarna navigacija</h2>
+            <button class="hamburger" aria-expanded="false" aria-controls="nav-menu">☰</button>
+            <ul class="nav-menu">
+                <li><a href="#">Pocetna</a></li>
+                <li><a href="#">O nama</a></li>
+                <li><a href="slike.html">Slike</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Filteri iznad tablice -->
+            <div class="filter-container">
+                <h2>Filtriraj filmove</h2>
+                <!-- Filteri -->
+                <label for="genre-filter">Žanr:</label>
+                <select id="genre-filter">
+                    <option value="">Odaberi žanr</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Action">Action</option>
+                    <option value="Animation">Animation</option>
+                </select>
+
+                <label for="title-filter">Naziv filma:</label>
+                <input type="text" id="title-filter" placeholder="Pretraži po nazivu">
+
+                <label for="rating-filter">Minimalna ocjena:</label>
+                <input type="range" id="rating-filter" min="0" max="10" step="0.1" value="0">
+                <span id="rating-value">0</span>
+
+                <button id="filter-button">Filtriraj</button>
+            </div>
+
+            <!-- Tablica za prikaz filmova -->
+            <div class="table-container">
+                <h1>Popis Filmova</h1>
+                <table id="movies-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Naslov</th>
+                            <th>Godina</th>
+                            <th>Žanr</th>
+                            <th>Trajanje</th>
+                            <th>Država</th>
+                            <th>Ocjena</th>
+                            <th>Akcija</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Podaci će biti umetnuti ovdje putem JavaScript-a -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Košarica -->
+            <aside id="cart">
+                <h2>Košarica</h2>
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Naslov</th>
+                            <th>Godina</th>
+                            <th>Žanr</th>
+                            <th>Ukloni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dodani filmovi će biti prikazani ovdje -->
+                    </tbody>
+                </table>
+                <button id="confirm-rent">Potvrdi posudbu</button>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025. Web Programiranje. Sva prava pridržana.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

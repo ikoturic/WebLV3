@@ -1,0 +1,248 @@
+/* Opći stilovi */
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+body {
+  font-family: 'Abel', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+/* Header i navigacija */
+header {
+  background: #222;
+  color: white;
+  padding: 20px;
+  position: relative;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  position: absolute;
+  width: 50px;
+  top: 30px;
+  left: 20px;
+  z-index: 100;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background: #222;
+  padding: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s;
+}
+
+.hamburger:focus + .nav-menu,
+.hamburger:hover + .nav-menu,
+.nav-menu:hover {
+  visibility: visible;
+  opacity: 1;
+}
+
+.nav-menu li {
+  margin: 0 15px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  display: block;
+  padding: 10px 20px;
+}
+
+/* Slike galerije */
+.galerija h1 {
+  color: darkblue;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.img-gallery-magnific {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.magnific-img {
+  width: 30%;
+  min-width: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.magnific-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.magnific-img img:hover {
+  transform: scale(1.03);
+}
+
+.magnific-img:hover img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Modalna slika */
+.modal-content {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content img {
+  width: 80%;
+  max-width: 900px;
+  height: auto;
+}
+
+.image-modal:checked + .magnific-img + .modal-content {
+  display: flex;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+/* Responzivnost */
+@media (max-width: 768px) {
+  .img-gallery-magnific {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .magnific-img {
+    width: 100%;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-menu li {
+    margin: 15px 0;
+  }
+
+  .hamburger:focus + .nav-menu,
+  .hamburger:hover + .nav-menu {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+/* Stil za galeriju slika */
+.magnific-img {
+  margin: 20px;
+}
+
+.magnific-img img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  cursor: pointer;
+}
+
+/* Stil za modalnu sliku */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
+}
+
+/* Gumb za zatvaranje */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 36px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Prikazivanje modala kada je aktiviran */
+.modal:target {
+  display: flex;
+}
+
+.modal:target .close-btn {
+  display: block;
+}
